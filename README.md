@@ -75,5 +75,12 @@ $ python main.py
 and change the config.json file appropriately
 
 
-
+## Please cite:
+No learning rates needed: Introducing SALSA - Stable ArmijoLine Search Adaptation
+from 
+Philip Kenneweg,
+Tristan Kenneweg,
+Fabian Fumagalli
+Barbara Hammer
+To be published in IJCNN 2024
 
