@@ -1,0 +1,18 @@
+[DEFAULT]
+batch_size = 32
+checkpoint = None
+directory = results/default
+seed = 42
+epochs = 5
+dataset = pol
+optim = adamsls
+num_diff_opt =1
+model = resnet34
+split_by = layer
+update_rule = cycle
+combine = 0
+c = 0.5
+cls = dense
+type = img
+beta = 0.99
+num_hidden_dims = 2
