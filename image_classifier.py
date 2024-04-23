@@ -176,6 +176,7 @@ class Image_trainer():
                 if index % log_step == 0:
                     dict = {"loss": loss.item() , "time_per_step":time.time()-startsteptime}    
                     if "sls" in  self.args.opts["opt"]:
+                        dict["ls_freq"] = self.optimizer.state["LS_freq"]
                         dict["lr"] = self.optimizer.state["lr"]
                         for a,step_size in enumerate( self.optimizer.state['step_sizes']):
                             dict["step_size"+str(a)] = step_size

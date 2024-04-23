@@ -113,7 +113,7 @@ class SaLSA(torch.optim.Optimizer):
             self.avg_step_size_slow = self.avg_step_size_slow * 0.99 + step_size *(1-0.99)
             self.avg_step_size_fast = self.avg_step_size_fast * 0.9 + step_size *(1-0.9)
         else:
-            self.try_sgd_precond_update(self.params, step_size, params_current, grad_current, self.momentum)      
+            self.try_sgd_precond_update(self.params, step_size, self.params, grad_current, self.momentum)      
 
         if torch.isnan(self.params[0][0]).sum() > 0:
             raise ValueError('nans detected')
