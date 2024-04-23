@@ -3,7 +3,7 @@ from main import main
 
 datasets = ["sst2", "mrpc", "qnli", "mnli"]
 models = ["bert"]#, "roberta"]
-optim = ["adamsls","adam", "sgdsls", "sgd", "oladamsls", "olsgdsls"]
+optim = ["salsasls","adamsls","adam", "sgdsls", "sgd", "oladamsls", "olsgdsls"]
 numexp = 5
 batch_size = [32]
 cs = [0.3]

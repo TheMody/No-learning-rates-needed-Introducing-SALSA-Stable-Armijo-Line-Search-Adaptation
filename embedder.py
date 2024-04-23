@@ -6,6 +6,7 @@ import time
 import numpy as np
 from transformers.utils import logging
 from sls.adam_sls import AdamSLS
+from sls.SaLSA import SaLSA
 import wandb
 from cosine_scheduler import CosineWarmupScheduler
 logging.set_verbosity_error()
@@ -80,6 +81,7 @@ class NLP_embedder(nn.Module):
             if args.opts["opt"] == "sgd":    
                 self.optimizer = optim.SGD(self.parameters(), lr=args.opts["lr"] )
             if args.opts["opt"] == "adamsls":    
+                #deprecated
                 self.optimizer = AdamSLS( [[param for name,param in self.named_parameters() if not "pooler" in name]] , c = self.args.c, beta_s = self.args.beta, speed_up=self.args.speed_up)
             if args.opts["opt"] == "oladamsls":    
                 self.optimizer = AdamSLS( [[param for name,param in self.named_parameters() if not "pooler" in name]] , c = 0.1, smooth = False)
@@ -87,6 +89,8 @@ class NLP_embedder(nn.Module):
                 self.optimizer = AdamSLS( [[param for name,param in self.named_parameters() if not "pooler" in name]] , c = 0.1, base_opt = "scalar",gv_option = "scalar", smooth = False)
             if args.opts["opt"] == "sgdsls":    
                 self.optimizer = AdamSLS( [[param for name,param in self.named_parameters() if not "pooler" in name]], base_opt = "scalar",gv_option = "scalar", c = self.args.c , beta_s = self.args.beta)
+            if args.opts["opt"] == "salsasls":    
+                self.optimizer = SaLSA( [param for name,param in self.named_parameters() if not "pooler" in name])
 
 
             
@@ -131,7 +135,12 @@ class NLP_embedder(nn.Module):
                 batch_x = batch_x.to(device)
 
                 if "sls" in  self.args.opts["opt"]:
-                    closure = lambda : self.criterion(self(batch_x), batch_y)
+                    def closure(backwards = False):
+                        y_pred = self(batch_x)
+                        loss = self.criterion(y_pred, batch_y)
+                        if backwards:
+                            loss.backward()
+                        return loss
                     self.optimizer.zero_grad()
                     loss = self.optimizer.step(closure = closure)
 
@@ -147,6 +156,7 @@ class NLP_embedder(nn.Module):
                     dict = {"loss": loss.item() , "time_per_step":time.time()-startsteptime}
                     if "sls" in  self.args.opts["opt"]:
                         dict["ls_freq"] = self.optimizer.state["LS_freq"]
+                        dict["lr"] = self.optimizer.state["lr"]
                         for a,step_size in enumerate( self.optimizer.state['step_sizes']):
                             dict["step_size"+str(a)] = step_size
                             dict["loss_decrease"] = self.optimizer.state["loss_decrease"]

@@ -21,21 +21,14 @@ for replication:
 
 ## Use in own projects
 
-The custom optimizer is in \sls\adam_sls.py and \sls\sls_base.py 
+The custom optimizer is in \sls\SaLSA.py and the comparison version are in adam_sls.py
 Example Usage:
 
 ```
-from sls.adam_sls import AdamSLS
-optimizer = AdamSLS([model.parameters()])
+from sls.SaLSA import SaLSA
+self.optimizer = SaLSA( model.parameters())
 ```
-For SaLSa  use::
-```
-optimizer = AdamSLS([model.parameters()], smooth = True, c = 0.5)
-```
-For splitting the learning rates in your network (not in this paper) use:
-```
-optimizer = AdamSLS([parameterlistA, parameterlistB, ... etc], smooth = True, c = 0.5)
-```
+
 
 The typical pytorch forward pass needs to be changed from :
 ``` 
@@ -48,9 +41,14 @@ scheduler.step()
 ```
 to:
 ``` 
-closure = lambda : criterion(model(batch_x), batch_y)
-optimizer.zero_grad()
-loss = optimizer.step(closure = closure)
+def closure(backwards = False):
+    y_pred = self(batch_x)
+    loss = self.criterion(y_pred, batch_y)
+    if backwards:
+        loss.backward()
+    return loss
+self.optimizer.zero_grad()
+loss = self.optimizer.step(closure = closure)
 ```
 
 This code change is necessary since, the optimizers needs to perform additional forward passes and thus needs to have the forward pass encapsulated in a function.
@@ -82,5 +80,5 @@ Philip Kenneweg,
 Tristan Kenneweg,
 Fabian Fumagalli
 Barbara Hammer
-To be published in IJCNN 2024
+published in IJCNN 2024
 
