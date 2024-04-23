@@ -21,20 +21,20 @@ for replication:
 
 ## Use in own projects
 
-The custom optimizer is in \sls\SaLSA.py and the comparison version are in adam_sls.py
+The custom optimizer is in \sls\SaLSA.py and the comparison version are in adam_sls.py \\
 Example Usage:
 
 ```
 from sls.SaLSA import SaLSA
-self.optimizer = SaLSA( model.parameters())
+self.optimizer = SaLSA(model.parameters())
 ```
 
 
 The typical pytorch forward pass needs to be changed from :
 ``` 
 optimizer.zero_grad()
-y_pred = model(batch_x)
-loss = criterion(y_pred, batch_y)    
+y_pred = model(x)
+loss = criterion(y_pred, y)    
 loss.backward()
 optimizer.step()
 scheduler.step() 
@@ -42,13 +42,12 @@ scheduler.step()
 to:
 ``` 
 def closure(backwards = False):
-    y_pred = self(batch_x)
-    loss = self.criterion(y_pred, batch_y)
-    if backwards:
-        loss.backward()
+    y_pred = model(x)
+    loss = criterion(y_pred, y)
+    if backwards: loss.backward()
     return loss
-self.optimizer.zero_grad()
-loss = self.optimizer.step(closure = closure)
+optimizer.zero_grad()
+loss = optimizer.step(closure = closure)
 ```
 
 This code change is necessary since, the optimizers needs to perform additional forward passes and thus needs to have the forward pass encapsulated in a function.

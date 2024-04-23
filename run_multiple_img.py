@@ -3,7 +3,7 @@ from main import main
 
 datasets = ["cifar10", "cifar100", "imagenet",]
 models = [ "resNet34",  "resNet50"]
-optim = [ "adamsls","oladamsls","adam", "sgd", "sgdsls", "olsgdsls"]
+optim = [ "salsasls","adamsls","oladamsls","adam", "sgd", "sgdsls", "olsgdsls"]
 numexp = 1
 batch_size = [128]
 cs = [0.3]

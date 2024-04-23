@@ -13,7 +13,8 @@ from data import load_wiki
 from sls.adam_sls import AdamSLS
 import wandb
 from cosine_scheduler import CosineWarmupScheduler
-from models import *
+from models.resnet import ResNet34
+from sls.SaLSA import SaLSA
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -128,6 +129,8 @@ class Image_trainer():
                 self.optimizer = AdamSLS( [[param for name,param in self.model.named_parameters() if not "pooler" in name]] ,strategy = args.update_rule, combine_threshold = args.combine, c = self.args.c , beta_s = args.beta)
             if args.opts["opt"] == "sgdsls":    
                 self.optimizer = AdamSLS( [[param for name,param in self.model.named_parameters() if not "pooler" in name]],strategy = args.update_rule, combine_threshold = args.combine, base_opt = "scalar",gv_option = "scalar", c = self.args.c , beta_s = args.beta )
+            if args.opts["opt"] == "salsasls":
+                self.optimizer = SaLSA([param for name,param in self.model.named_parameters() if not "pooler" in name])
 
 
     def fit(self,data, epochs, eval_ds = None, log_step =1):
@@ -153,7 +156,12 @@ class Image_trainer():
                 batch_y = batch_y.to(device)
               #  print(batch_x.shape)
                 if "sls" in self.args.opts["opt"]:
-                    closure = lambda : self.criterion(self.model(batch_x), batch_y)
+                    def closure(backwards = False):
+                        y_pred = self.model(batch_x)
+                        loss = self.criterion(y_pred, batch_y)  
+                        if backwards:  
+                            loss.backward()
+                        return loss
                     self.optimizer.zero_grad()
                     loss = self.optimizer.step(closure = closure)
                 else:
@@ -168,6 +176,7 @@ class Image_trainer():
                 if index % log_step == 0:
                     dict = {"loss": loss.item() , "time_per_step":time.time()-startsteptime}    
                     if "sls" in  self.args.opts["opt"]:
+                        dict["lr"] = self.optimizer.state["lr"]
                         for a,step_size in enumerate( self.optimizer.state['step_sizes']):
                             dict["step_size"+str(a)] = step_size
                             dict["avg_grad_norm"+str(a)] = self.optimizer.state["grad_norm_avg"][a]
