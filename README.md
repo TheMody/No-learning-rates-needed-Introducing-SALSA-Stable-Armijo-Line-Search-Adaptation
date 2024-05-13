@@ -2,6 +2,8 @@
 
 The Repository to the Paper Faster Convergence for No learning rates needed: Introducing SALSA - Stable ArmijoLine Search Adaptation
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EttProDnEDY?si=ItGHSSTCnqjVfJZj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Install
 
 Dependencies:
@@ -71,6 +73,9 @@ $ python main.py
 
 and change the config.json file appropriately
 
+## Older Versions of this Optimizer:
+https://github.com/TheMody/Faster-Convergence-for-Transformer-Fine-tuning-with-Line-Search-Methods
+https://github.com/TheMody/Improving-Line-Search-Methods-for-Large-Scale-Neural-Network-Training
 
 ## Please cite:
 No learning rates needed: Introducing SALSA - Stable ArmijoLine Search Adaptation
