@@ -55,6 +55,13 @@ see embedder.py in the fit() method for more details
 
 
 ## Replicating Results
+The results of the Line Search Algorithm are:
+
+![Loss Curve](figures/Table.png)
+
+on average a 50\% reduction in final loss, while only needing about 3\% extra compute time on average.
+
+
 For replicating the main Results of the Paper run:
 
 ```
@@ -72,6 +79,9 @@ $ python main.py
 and change the config.json file appropriately
 
 
+
+
+
 ## Please cite:
 No learning rates needed: Introducing SALSA - Stable ArmijoLine Search Adaptation
 from 
@@ -79,5 +89,14 @@ Philip Kenneweg,
 Tristan Kenneweg,
 Fabian Fumagalli
 Barbara Hammer
-published in IJCNN 2024
+to be published in IJCNN 2024
+
+``` 
+@inproceedings{pkenneweg2024Salsa,
+  author    = {Kenneweg, Philip and Kenneweg, Tristan and Fabian Fumagalli and Hammer, Barbara},
+  title     = {No learning rates needed: Introducing SALSA - Stable ArmijoLine Search Adaptation},
+  journal   = {IJCNN},
+  year      = {2024},
+}
+```
 

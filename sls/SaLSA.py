@@ -11,7 +11,7 @@ class SaLSA(torch.optim.Optimizer):
                  init_step_size=1,
                  c=0.5,
                  momentum=(0.9,0.999,0.9),
-                 speed_up = False,
+                 speed_up = True,
                  use_mv = True,):
         
         params = list(params)
