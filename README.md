@@ -1,4 +1,4 @@
-# No learning rates needed: Introducing SALSA - Stable ArmijoLine Search Adaptation
+# No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation
 
 The Repository to the Paper Faster Convergence for No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation
 
