@@ -106,10 +106,12 @@ Fabian Fumagalli
 Barbara Hammer
 to be published in IJCNN 2024
 
+the citation may change slightly when the IJCNN 2024 conference is finished
+
 ``` 
 @inproceedings{pkenneweg2024Salsa,
   author    = {Kenneweg, Philip and Kenneweg, Tristan and Fabian Fumagalli and Hammer, Barbara},
-  title     = {No learning rates needed: Introducing SALSA - Stable ArmijoLine Search Adaptation},
+  title     = {No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation},
   journal   = {IJCNN},
   year      = {2024},
 }
