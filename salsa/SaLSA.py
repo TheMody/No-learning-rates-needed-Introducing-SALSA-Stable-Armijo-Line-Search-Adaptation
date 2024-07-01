@@ -6,6 +6,14 @@ import contextlib
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class SaLSA(torch.optim.Optimizer):
+    """
+    SaLSA optimizer,
+    init_step_size: initial step size (should be just high but not important)
+    c: sufficient decrease condition (should be between 0 and 1 0.5 works fine for most things)
+    momentum: momentum parameter (first 2 are adams beta1 and beta2, last one is the momentum parameter for the gradient update)
+    speed_up: use speed up
+    use_mv: use momentum i would recommend True but False should also work fine
+    """
     def __init__(self,
                  params,
                  init_step_size=1,
