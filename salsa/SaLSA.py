@@ -12,7 +12,7 @@ class SaLSA(torch.optim.Optimizer):
                  c=0.5,
                  momentum=(0.9,0.999,0.9),
                  speed_up = True,
-                 use_mv = True,):
+                 use_mv = False,):
         
         params = list(params)
         super().__init__(params, {})
