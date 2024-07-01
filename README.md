@@ -63,7 +63,7 @@ loss = optimizer.step(closure = closure)
 ```
 
 This code change is necessary since, the optimizers needs to perform additional forward passes and thus needs to have the forward pass encapsulated in a function.
-\\ See embedder.py in the fit() method for more details
+See embedder.py in the fit() method for more details
 
 
 ## Replicating Results
