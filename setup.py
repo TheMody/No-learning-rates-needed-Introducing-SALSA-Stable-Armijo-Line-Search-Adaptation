@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         # List your dependencies here, e.g.,
-       # "numpy>=1.18.5",
+        "numpy>=1.18.5",
         "torch>=2.0.0",
     ],
     entry_points={
