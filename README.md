@@ -8,11 +8,18 @@ Youtube Link:
 
 
 ## Install
+Download the repo and use:
+
+```
+pip install .
+```
 
 Dependencies:
 
 - [pytorch](https://pytorch.org) <3
 - [numpy](https://numpy.org/install/) <3
+
+
 
 for replicating the results (not needed for using the optimizer):
 - `pip install transformers` for huggingface transformers <3 
@@ -30,7 +37,7 @@ The custom optimizer is in \sls\SaLSA.py and the comparison version are in adam_
 Example Usage:
 
 ```
-from sls.SaLSA import SaLSA
+from salsa.SaLSA import SaLSA
 self.optimizer = SaLSA(model.parameters())
 ```
 

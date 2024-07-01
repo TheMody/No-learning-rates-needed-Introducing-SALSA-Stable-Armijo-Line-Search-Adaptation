@@ -5,8 +5,8 @@ import math
 import time
 import numpy as np
 from transformers.utils import logging
-from sls.adam_sls import AdamSLS
-from sls.SaLSA import SaLSA
+from salsa.adam_sls import AdamSLS
+from salsa.SaLSA import SaLSA
 import wandb
 from cosine_scheduler import CosineWarmupScheduler
 logging.set_verbosity_error()
