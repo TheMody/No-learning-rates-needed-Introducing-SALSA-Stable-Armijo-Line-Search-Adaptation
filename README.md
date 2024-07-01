@@ -33,7 +33,7 @@ for replicating the results (not needed for using the optimizer):
 
 ## Use in own projects
 
-The custom optimizer is in \sls\SaLSA.py and the comparison version are in adam_sls.py \\
+The custom optimizer is in \salsa\SaLSA.py and the comparison version are in \salsa\adam_sls.py \\
 Example Usage:
 
 ```
