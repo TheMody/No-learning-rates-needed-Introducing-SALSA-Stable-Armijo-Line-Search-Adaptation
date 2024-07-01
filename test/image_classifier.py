@@ -10,11 +10,11 @@ import time
 import numpy as np
 from copy import deepcopy
 from data import load_wiki
-from sls.adam_sls import AdamSLS
+from salsa.adam_sls import AdamSLS
 import wandb
 from cosine_scheduler import CosineWarmupScheduler
 from models.resnet import ResNet34
-from sls.SaLSA import SaLSA
+from salsa.SaLSA import SaLSA
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
