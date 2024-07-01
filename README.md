@@ -77,18 +77,18 @@ on average a 50\% reduction in final loss, while only needing about 3\% extra co
 For replicating the main Results of the Paper run:
 
 ```
-$ python run_multiple.py
-$ python run_multiple_img.py
+$ python test/run_multiple.py
+$ python test/run_multiple_img.py
 ```
 
 
 For replicating specific runs or trying out different hyperparameters use:
 
 ```
-$ python main.py 
+$ python test/main.py 
 ```
 
-and change the config.json file appropriately
+and change the test/config.json file appropriately
 
 ## Older Versions of this Optimizer:
 https://github.com/TheMody/Faster-Convergence-for-Transformer-Fine-tuning-with-Line-Search-Methods
