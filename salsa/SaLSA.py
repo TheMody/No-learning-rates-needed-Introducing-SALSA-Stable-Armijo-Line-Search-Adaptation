@@ -187,9 +187,9 @@ class SaLSA(torch.optim.Optimizer):
             self.state['n_backtr'] += e
 
         else:
-            print("loss is", loss.item(), "suff_dec", suff_dec)
-            if loss.item() == 0:
-                self.state['numerical_error'] += 1
+          #  print("loss is", loss.item(), "suff_dec", suff_dec)
+          #  if loss.item() == 0:
+           #     self.state['numerical_error'] += 1
             loss_next = closure_deterministic()
 
         return step_size, loss_next
