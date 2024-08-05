@@ -104,7 +104,7 @@ Philip Kenneweg,
 Tristan Kenneweg,
 Fabian Fumagalli
 Barbara Hammer
-published in IJCNN 2024
+published in IJCNN 2024 and on arvix
 
 
 
