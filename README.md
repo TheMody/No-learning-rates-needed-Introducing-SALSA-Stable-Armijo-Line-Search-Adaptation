@@ -104,16 +104,19 @@ Philip Kenneweg,
 Tristan Kenneweg,
 Fabian Fumagalli
 Barbara Hammer
-to be published in IJCNN 2024
+published in IJCNN 2024
 
-the citation may change slightly when the IJCNN 2024 conference is finished
 
-``` 
-@inproceedings{pkenneweg2024Salsa,
-  author    = {Kenneweg, Philip and Kenneweg, Tristan and Fabian Fumagalli and Hammer, Barbara},
-  title     = {No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation},
-  journal   = {IJCNN},
-  year      = {2024},
+
+```
+@misc{kenneweg2024learningratesneededintroducing,
+      title={No learning rates needed: Introducing SALSA -- Stable Armijo Line Search Adaptation}, 
+      author={Philip Kenneweg and Tristan Kenneweg and Fabian Fumagalli and Barbara Hammer},
+      year={2024},
+      eprint={2407.20650},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2407.20650}, 
 }
 ```
 
