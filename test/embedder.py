@@ -90,7 +90,7 @@ class NLP_embedder(nn.Module):
             if args.opts["opt"] == "sgdsls":    
                 self.optimizer = AdamSLS( [[param for name,param in self.named_parameters() if not "pooler" in name]], base_opt = "scalar",gv_option = "scalar", c = self.args.c , beta_s = self.args.beta)
             if args.opts["opt"] == "salsasls":    
-                self.optimizer = SaLSA( [param for name,param in self.named_parameters() if not "pooler" in name])
+                self.optimizer = SaLSA(self.parameters())#[param for name,param in self.named_parameters() if not "pooler" in name])#self.parameters()
 
 
             
@@ -104,6 +104,7 @@ class NLP_embedder(nn.Module):
     
      
     def fit(self, x, y, epochs=1, X_val= None,Y_val= None):
+      #  print("test")
         wandb.init(project="suplementary"+self.args.ds, name = self.args.split_by + "_" + self.args.opts["opt"] + "_" + self.args.model +
             "_" + str(self.args.number_of_diff_lrs) +"_"+ self.args.savepth, entity="pkenneweg", 
             group = "suplementary"+str(self.args.speed_up)+ self.args.opts["opt"] + "_" + self.args.model +"_" + str(self.args.number_of_diff_lrs) + self.args.update_rule 

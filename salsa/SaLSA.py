@@ -67,6 +67,8 @@ class SaLSA(torch.optim.Optimizer):
                 return closure(backwards = backwards)
 
         loss = closure_deterministic(backwards = True)
+
+
      #   loss.backward()
 
         # if self.clip_grad:
@@ -90,14 +92,15 @@ class SaLSA(torch.optim.Optimizer):
         if self.base_opt == 'adam':
             # update gv
             for a, g in enumerate(grad_current):
-                if isinstance(g, torch.Tensor) and isinstance(self.state['gv'][a], torch.Tensor):
-                    if g.device != self.state['gv'][a].device:
-                        self.state['gv'][a] = self.state['gv'][a].to(g.device)
-                if isinstance(g, torch.Tensor) and isinstance(self.state['mv'][a], torch.Tensor):
-                    if g.device != self.state['mv'][a].device:
-                        self.state['mv'][a] = self.state['mv'][a].to(g.device)
-                self.state['gv'][a] = (1-self.beta)*(g**2) + (self.beta) * self.state['gv'][a]
-                self.state['mv'][a] = (1-self.momentum)*g + (self.momentum) * self.state['mv'][a]
+                if g is not None:
+                    if isinstance(g, torch.Tensor) and isinstance(self.state['gv'][a], torch.Tensor):
+                        if g.device != self.state['gv'][a].device:
+                            self.state['gv'][a] = self.state['gv'][a].to(g.device)
+                    if isinstance(g, torch.Tensor) and isinstance(self.state['mv'][a], torch.Tensor):
+                        if g.device != self.state['mv'][a].device:
+                            self.state['mv'][a] = self.state['mv'][a].to(g.device)
+                    self.state['gv'][a] = (1-self.beta)*(g**2) + (self.beta) * self.state['gv'][a]
+                    self.state['mv'][a] = (1-self.momentum)*g + (self.momentum) * self.state['mv'][a]
 
         step_size = self.step_size * self.growth_factor
 
@@ -131,6 +134,8 @@ class SaLSA(torch.optim.Optimizer):
     def get_pp_norm(self, grad_current):
         pp_norm = 0
         for g_i, gv_i, mv_i in zip(grad_current, self.state['gv'],  self.state['mv']):
+            if g_i is None:
+                continue
             gv_i_scaled = scale_vector(gv_i, self.beta, self.state['step']+1)
             pv_i = 1. / (torch.sqrt(gv_i_scaled) + 1e-8)
             if self.use_mv:
@@ -206,6 +211,8 @@ class SaLSA(torch.optim.Optimizer):
         elif self.base_opt == 'adam':
                 zipped = zip(params, params_current, grad_current, self.state['gv'], self.state['mv'])
                 for p_next, p_current, g_current, gv_i, mv_i in zipped:
+                    if g_current is None:
+                        continue
                     gv_i_scaled = scale_vector(gv_i, self.beta, self.state['step']+1)
                     pv_list = 1. / (torch.sqrt(gv_i_scaled) + 1e-8)
 
