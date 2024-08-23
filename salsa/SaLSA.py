@@ -190,6 +190,7 @@ class SaLSA(torch.optim.Optimizer):
           #  print("loss is", loss.item(), "suff_dec", suff_dec)
           #  if loss.item() == 0:
            #     self.state['numerical_error'] += 1
+            self.try_sgd_precond_update(self.params, step_size, params_current, grad_current,  momentum=self.momentum)
             loss_next = closure_deterministic()
 
         return step_size, loss_next
