@@ -8,10 +8,10 @@ Youtube Link:
 
 
 ## Install
-Download the repo and use:
+Just use:
 
 ```
-pip install .
+pip install SaLSa-Optimizer
 ```
 
 Dependencies:
