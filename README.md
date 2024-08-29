@@ -8,7 +8,7 @@ Youtube Link:
 
 
 ## Install
-Just use:
+Please use:
 
 ```
 pip install SaLSa-Optimizer
