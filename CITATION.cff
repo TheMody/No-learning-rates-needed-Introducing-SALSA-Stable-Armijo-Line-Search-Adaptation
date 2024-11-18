@@ -28,6 +28,5 @@ preferred-citation:
   type: article-journal
   pages: 1-8
   year: '2024'
-  collection-title: 2024 International Joint Conference on Neural Networks (IJCNN)
-  conference: {}
+  conference: 2024 International Joint Conference on Neural Networks (IJCNN)
   publisher: {}
