@@ -109,14 +109,15 @@ published in IJCNN 2024 and on arvix
 
 
 ```
-@misc{kenneweg2024learningratesneededintroducing,
-      title={No learning rates needed: Introducing SALSA -- Stable Armijo Line Search Adaptation}, 
-      author={Philip Kenneweg and Tristan Kenneweg and Fabian Fumagalli and Barbara Hammer},
-      year={2024},
-      eprint={2407.20650},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2407.20650}, 
-}
+@INPROCEEDINGS{10650124,
+  author={Kenneweg, Philip and Kenneweg, Tristan and Fumagalli, Fabian and Hammer, Barbara},
+  booktitle={2024 International Joint Conference on Neural Networks (IJCNN)}, 
+  title={No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-8},
+  keywords={Training;Schedules;Codes;Search methods;Source coding;Computer architecture;Transformers},
+  doi={10.1109/IJCNN60899.2024.10650124}}
 ```
 
