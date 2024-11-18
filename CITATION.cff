@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: If you use this software, please cite both the article from preferred-citation and the software itself.
+authors:
+  - family-names: Kenneweg
+    given-names: Philip
+  - family-names: Kenneweg
+    given-names: Tristan
+  - family-names: Fumagalli
+    given-names: Fabian
+  - family-names: Hammer
+    given-names: Barbara
+title: 'No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation'
+version: 1.0.0
+doi: 10.1109/IJCNN60899.2024.10650124
+date-released: '2024-11-18'
+preferred-citation:
+  authors:
+    - family-names: Kenneweg
+      given-names: Philip
+    - family-names: Kenneweg
+      given-names: Tristan
+    - family-names: Fumagalli
+      given-names: Fabian
+    - family-names: Hammer
+      given-names: Barbara
+  title: 'No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation'
+  doi: 10.1109/IJCNN60899.2024.10650124
+  type: article-journal
+  pages: 1-8
+  year: '2024'
+  collection-title: 2024 International Joint Conference on Neural Networks (IJCNN)
+  conference: {}
+  publisher: {}
