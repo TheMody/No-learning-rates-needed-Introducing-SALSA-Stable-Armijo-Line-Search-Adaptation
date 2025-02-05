@@ -1,6 +1,6 @@
-# No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation
+# SALSA - Optimizer
 
-The official Repository to the Paper Faster Convergence for No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation. With additional features.
+The official Repository to the Paper "No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation". With additional features.
 If you have any question, remarks or issues with the SALSA-Optimizer please do not hesitate to contact us on Github.
 
 Youtube Link:
