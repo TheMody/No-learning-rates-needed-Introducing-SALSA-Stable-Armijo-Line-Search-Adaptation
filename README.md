@@ -45,7 +45,7 @@ self.optimizer = SaLSA(model.parameters())
 
 The typical pytorch forward pass needs to be changed from :
 ``` 
-x = load_input_data()
+x,y = load_input_data()
 optimizer.zero_grad()
 y_pred = model(x)
 loss = criterion(y_pred, y)    
@@ -55,7 +55,7 @@ scheduler.step()
 ```
 to:
 ``` 
-x = load_input_data()
+x,y = load_input_data()
 def closure(backwards = False):
     y_pred = model(x)
     loss = criterion(y_pred, y)
