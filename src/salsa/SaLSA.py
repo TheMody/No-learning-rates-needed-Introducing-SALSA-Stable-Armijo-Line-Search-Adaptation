@@ -20,7 +20,8 @@ class SaLSA(torch.optim.Optimizer):
                  c=0.5,
                  momentum=(0.9,0.999,0.9),
                  speed_up = True,
-                 use_mv = False,):
+                 use_mv = False,
+                 weight_decay=0.0): 
         
         params = list(params)
         super().__init__(params, {})
@@ -41,6 +42,7 @@ class SaLSA(torch.optim.Optimizer):
         self.state['n_backtr'] = 0
         self.speed_up = speed_up
         self.base_opt = 'adam'
+        self.weight_decay = weight_decay    
        # self.params_prev = copy.deepcopy(params) 
 
 
@@ -68,7 +70,9 @@ class SaLSA(torch.optim.Optimizer):
 
         loss = closure_deterministic(backwards = True)
 
-
+        if self.weight_decay != 0.0:
+            for p in self.params:
+                p.data.add_(p.data, alpha=-self.weight_decay*self.step_size)
      #   loss.backward()
 
         # if self.clip_grad:
@@ -153,7 +157,7 @@ class SaLSA(torch.optim.Optimizer):
 
         suff_dec = self.avg_gradient_norm
 
-        if loss.item() != 0 and suff_dec >= 1e-8:
+        if loss.item() >= 1e-8 and suff_dec >= 1e-8:
             # check if condition is satisfied
             found = 0
 

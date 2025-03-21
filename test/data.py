@@ -21,7 +21,7 @@ def load_data(name="sst2"):
 #         print("dataset not suported")
    
     if "sst2" in name:
-        data = tfds.load('glue/sst2', split=split, shuffle_files=False)
+        data = tfds.load('glue/sst2', split=split, shuffle_files=False, data_dir='/path/to/new/cache')
         
         X = [str(e["sentence"].numpy()) for e in data]
         y = [int(e["label"]) for e in data]
