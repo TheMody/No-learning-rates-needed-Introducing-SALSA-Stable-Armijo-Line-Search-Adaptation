@@ -15,23 +15,6 @@ Please use:
 pip install SaLSa-Optimizer
 ```
 
-Dependencies:
-
-- [pytorch](https://pytorch.org) <3
-- [numpy](https://numpy.org/install/) <3
-
-
-
-for replicating the results (not needed for using the optimizer):
-- `pip install transformers` for huggingface transformers <3 
-- `pip install datasets` for huggingface datasets <3 
-- `pip install tensorflow-datasets` for tensorflow datasets <3 
-- `pip install wandb` for optional logging <3
-- for easy replication use conda and environment.yml eg:
-`$ conda env create -f environment.yml` and `$ conda activate sls3`
-
-
-
 ## Use in own projects
 
 The custom optimizer is in \salsa\SaLSA.py and the comparison version are in \salsa\adam_sls.py \\
@@ -70,6 +53,21 @@ See embedder.py in the fit() method for more details
 
 
 ## Replicating Results
+Dependencies:
+
+- [pytorch](https://pytorch.org) <3
+- [numpy](https://numpy.org/install/) <3
+
+
+for replicating the results (not needed for using the optimizer):
+- `pip install transformers` for huggingface transformers <3 
+- `pip install datasets` for huggingface datasets <3 
+- `pip install tensorflow-datasets` for tensorflow datasets <3 
+- `pip install wandb` for optional logging <3
+- for easy replication use conda and environment.yml eg:
+`$ conda env create -f environment.yml` and `$ conda activate sls3`
+
+
 The results of the Line Search Algorithm are:
 
 ![Loss Curve](figures/Table.png)
