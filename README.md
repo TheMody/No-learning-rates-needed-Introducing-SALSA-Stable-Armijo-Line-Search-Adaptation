@@ -16,7 +16,6 @@ pip install SaLSa-Optimizer
 
 ## Use:
 
-The custom optimizer is in \salsa\SaLSA.py and the comparison version are in \salsa\adam_sls.py \\
 Example Usage:
 
 ```
