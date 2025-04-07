@@ -13,7 +13,13 @@ Youtube Link:
 ```
 pip install SaLSa-Optimizer
 ```
+or 
 
+```
+git clone https://github.com/TheMody/No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
+cd No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
+pip install .
+```
 ## Use:
 
 Example Usage:
