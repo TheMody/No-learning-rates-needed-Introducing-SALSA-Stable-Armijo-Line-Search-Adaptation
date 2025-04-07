@@ -3,10 +3,6 @@
 The official Repository to the Paper "No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation". With additional features.
 If you have any question, remarks or issues with the SALSA-Optimizer please do not hesitate to contact us on Github.
 
-Youtube Link:
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EttProDnEDY/0.jpg)](https://www.youtube.com/watch?v=EttProDnEDY)
-
 
 ## Install
 
@@ -57,6 +53,10 @@ See embedder.py in the fit() method for more details
 
 
 ## Replicating Results
+Youtube Video Explaining the Concept:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EttProDnEDY/0.jpg)](https://www.youtube.com/watch?v=EttProDnEDY)
+
 Dependencies:
 
 - [pytorch](https://pytorch.org) <3
