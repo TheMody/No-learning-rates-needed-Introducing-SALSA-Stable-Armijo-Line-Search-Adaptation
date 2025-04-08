@@ -3,38 +3,21 @@
 The official Repository to the Paper "No learning rates needed: Introducing SALSA - Stable Armijo Line Search Adaptation". With additional features.
 If you have any question, remarks or issues with the SALSA-Optimizer please do not hesitate to contact us on Github.
 
-Youtube Link:
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EttProDnEDY/0.jpg)](https://www.youtube.com/watch?v=EttProDnEDY)
-
 
 ## Install
-Please use:
 
 ```
 pip install SaLSa-Optimizer
 ```
+or 
 
-Dependencies:
+```
+git clone https://github.com/TheMody/No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
+cd No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
+pip install .
+```
+## Use:
 
-- [pytorch](https://pytorch.org) <3
-- [numpy](https://numpy.org/install/) <3
-
-
-
-for replicating the results (not needed for using the optimizer):
-- `pip install transformers` for huggingface transformers <3 
-- `pip install datasets` for huggingface datasets <3 
-- `pip install tensorflow-datasets` for tensorflow datasets <3 
-- `pip install wandb` for optional logging <3
-- for easy replication use conda and environment.yml eg:
-`$ conda env create -f environment.yml` and `$ conda activate sls3`
-
-
-
-## Use in own projects
-
-The custom optimizer is in \salsa\SaLSA.py and the comparison version are in \salsa\adam_sls.py \\
 Example Usage:
 
 ```
@@ -66,10 +49,29 @@ loss = optimizer.step(closure = closure)
 ```
 
 This code change is necessary since, the optimizers needs to perform additional forward passes and thus needs to have the forward pass encapsulated in a function.
-See embedder.py in the fit() method for more details
+See embedder.py in the fit() method for exemplary usage.
 
 
 ## Replicating Results
+Youtube Video Explaining the Concept:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EttProDnEDY/0.jpg)](https://www.youtube.com/watch?v=EttProDnEDY)
+
+Dependencies:
+
+- [pytorch](https://pytorch.org) <3
+- [numpy](https://numpy.org/install/) <3
+
+
+for replicating the results (not needed for using the optimizer):
+- `pip install transformers` for huggingface transformers <3 
+- `pip install datasets` for huggingface datasets <3 
+- `pip install tensorflow-datasets` for tensorflow datasets <3 
+- `pip install wandb` for optional logging <3
+- for easy replication use conda and environment.yml eg:
+`$ conda env create -f environment.yml` and `$ conda activate sls3`
+
+
 The results of the Line Search Algorithm are:
 
 ![Loss Curve](figures/Table.png)
