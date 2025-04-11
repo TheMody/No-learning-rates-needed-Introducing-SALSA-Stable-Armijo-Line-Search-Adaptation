@@ -9,11 +9,9 @@ If you have any question, remarks or issues with the SALSA-Optimizer please do n
 ```
 pip install SaLSa-Optimizer
 ```
-or 
+or clone the repo and use
 
 ```
-git clone https://github.com/TheMody/No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
-cd No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
 pip install .
 ```
 ## Use:
