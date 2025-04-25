@@ -45,6 +45,7 @@ def closure(backwards = False):
 optimizer.zero_grad()
 loss = optimizer.step(closure = closure)
 ```
+At the moment gradient scalers are not possible to be used simultaneously with SALSA.
 
 This code change is necessary since, the optimizers needs to perform additional forward passes and thus needs to have the forward pass encapsulated in a function.
 See embedder.py in the fit() method for exemplary usage.
