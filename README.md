@@ -50,6 +50,10 @@ At the moment gradient scalers are not possible to be used simultaneously with S
 This code change is necessary since, the optimizers needs to perform additional forward passes and thus needs to have the forward pass encapsulated in a function.
 See embedder.py in the fit() method for exemplary usage.
 
+## Disclaimer:
+
+This optimizer was only tested and validated to perform well with MLPs, Transformers, and Convolutional Neural Networks (Mamba was also tested but needed a c value of 0.7). Your results may vary when you try it for other architectures and/or use cases on which it was not validated. When you encounter any issues, try tuning the c value of the optimizer and/or open an issue on Github.
+
 
 ## Replicating Results
 Youtube Video Explaining the Concept:
@@ -94,9 +98,6 @@ $ python test/main.py
 
 and change the test/config.json file appropriately
 
-## Disclaimer:
-
-This optimizer was only tested and validated to perform well with MLPs, Transformers, and Convolutional Neural Networks (Mamba was also tested but needed a c value of 0.7). Your results may vary when you try it for other architectures and/or use cases on which it was not validated. When you encounter any issues, try tuning the c value of the optimizer and/or open an issue on Github.
 
 
 ## Older Versions of this Optimizer:
