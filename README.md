@@ -96,7 +96,8 @@ and change the test/config.json file appropriately
 
 ## Disclaimer:
 
-This optimizer was only tested and validated to perform well with MLPs, Transformers, and Convolutional Neural Networks. Your results may vary when you try it for other architectures and/or use cases on which it was not validated. When you encounter any issues, try tuning the c value of the optimizer and/or open an issue on Github.
+This optimizer was only tested and validated to perform well with MLPs, Transformers, and Convolutional Neural Networks (Mamba was also tested but needed a c value of 0.7). Your results may vary when you try it for other architectures and/or use cases on which it was not validated. When you encounter any issues, try tuning the c value of the optimizer and/or open an issue on Github.
+
 
 ## Older Versions of this Optimizer:
 https://github.com/TheMody/Faster-Convergence-for-Transformer-Fine-tuning-with-Line-Search-Methods
