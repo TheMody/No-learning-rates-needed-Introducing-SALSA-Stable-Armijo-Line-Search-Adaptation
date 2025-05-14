@@ -94,6 +94,10 @@ $ python test/main.py
 
 and change the test/config.json file appropriately
 
+## Disclaimer:
+
+This optimizer was only tested and validated to perform well with MLPs, Transformers, and Convolutional Neural Networks. Your results may vary when you try it for other architectures and/or use cases on which it was not validated. When you encounter any issues, try tuning the c value of the optimizer and/or open an issue on Github.
+
 ## Older Versions of this Optimizer:
 https://github.com/TheMody/Faster-Convergence-for-Transformer-Fine-tuning-with-Line-Search-Methods
 https://github.com/TheMody/Improving-Line-Search-Methods-for-Large-Scale-Neural-Network-Training
