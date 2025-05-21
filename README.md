@@ -9,11 +9,9 @@ If you have any question, remarks or issues with the SALSA-Optimizer please do n
 ```
 pip install SaLSa-Optimizer
 ```
-or 
+or clone the repo and use
 
 ```
-git clone https://github.com/TheMody/No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
-cd No-learning-rates-needed-Introducing-SALSA-Stable-Armijo-Line-Search-Adaptation
 pip install .
 ```
 ## Use:
@@ -47,9 +45,14 @@ def closure(backwards = False):
 optimizer.zero_grad()
 loss = optimizer.step(closure = closure)
 ```
+At the moment gradient scalers are not possible to be used simultaneously with SALSA.
 
 This code change is necessary since, the optimizers needs to perform additional forward passes and thus needs to have the forward pass encapsulated in a function.
 See embedder.py in the fit() method for exemplary usage.
+
+## Disclaimer:
+
+This optimizer was only tested and validated to perform well with MLPs, Transformers, and Convolutional Neural Networks (Mamba was also tested but needed a c value of 0.7). Your results may vary when you try it for other architectures and/or use cases on which it was not validated. When you encounter any issues, try tuning the c value of the optimizer and/or open an issue on Github.
 
 
 ## Replicating Results
@@ -94,6 +97,8 @@ $ python test/main.py
 ```
 
 and change the test/config.json file appropriately
+
+
 
 ## Older Versions of this Optimizer:
 https://github.com/TheMody/Faster-Convergence-for-Transformer-Fine-tuning-with-Line-Search-Methods
