@@ -112,6 +112,7 @@ class StochLineSearchBase(torch.optim.Optimizer):
                         if loss - loss_next == 0.0:
                             found = 1
                             print("had cancelation error loss was equal no decrease necessary")
+                            break
 
                         if not self.smooth:
                             decrease = loss-loss_next
@@ -124,6 +125,8 @@ class StochLineSearchBase(torch.optim.Optimizer):
                                                                         suff_dec=suff_dec,
                                                                         c=self.c,
                                                                         beta_b=self.beta_b)
+                        
+
                         if found == 1:
                             self.avg_decrease[i]  = self.avg_decrease[i] * self.beta_s + (loss-loss_next) *(1-self.beta_s) 
                             break
